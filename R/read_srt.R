@@ -7,10 +7,8 @@
 #' @export
 read_srt <- function(file) {
 
-  size <- file.info(file)$size
-
   subs <-
-    readChar(file, size) %>%
+    readr::read_file(file) %>%
     stringr::str_split("(\r\n){2,}|\n{2,}") %>%
     unlist()
 
