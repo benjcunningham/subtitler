@@ -1,4 +1,4 @@
-#' Read a SubRip (SRT) File
+#' Write a SubRip (SRT) File
 #'
 #' @param x A data frame to write to disk. Must contain the columns
 #'   \code{index}, \code{start}, \code{end}, and \code{text}.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/write_srt.R
 \name{write_srt}
 \alias{write_srt}
-\title{Read a SubRip (SRT) File}
+\title{Write a SubRip (SRT) File}
 \usage{
 write_srt(x, path, append = FALSE)
 }
@@ -20,5 +20,5 @@ new file is created.}
 The input x, invisibly.
 }
 \description{
-Read a SubRip (SRT) File
+Write a SubRip (SRT) File
 }
