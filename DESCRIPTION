@@ -7,7 +7,6 @@ Authors@R: c(
     )
 URL: https://github.com/benjcunningham/subtitler
 BugReports: https://github.com/benjcunningham/subtitler/issues
-Maintainer: The package maintainer <yourself@somewhere.net>
 License: MIT + file LICENSE
 LazyData: true
 Imports:
