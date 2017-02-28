@@ -19,7 +19,7 @@ as_timestamp <- function(x) {
       stringr::str_pad(2, pad = "0")
 
     paste(stamp[1:3], collapse = ":") %>%
-      paste(stamp[4], sep = ",")
+      paste(stringr::str_pad(stamp[4], 3, pad = "0"), sep = ",")
 
   })
 
