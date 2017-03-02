@@ -3,7 +3,7 @@
 subtitler
 =========
 
-[![Build Status](https://travis-ci.org/benjcunningham/subtitler.svg?branch=master)](https://travis-ci.org/benjcunningham/subtitler) [![Coverage Status](https://coveralls.io/repos/github/benjcunningham/subtitler/badge.svg?branch=master)](https://coveralls.io/github/benjcunningham/subtitler?branch=master)
+[![Build Status](https://travis-ci.org/benjcunningham/subtitler.svg?branch=master)](https://travis-ci.org/benjcunningham/subtitler) [![Coverage Status](https://img.shields.io/coveralls/benjcunningham/subtitler.svg)](https://coveralls.io/github/benjcunningham/subtitler?branch=master)
 
 Read and write video subtitle formats.
 
