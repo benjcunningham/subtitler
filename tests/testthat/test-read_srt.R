@@ -5,22 +5,15 @@ suppressMessages({
   library(dplyr)
   library(readr)
 
-  srt <-
-    read_srt("charlie_work.srt") %>%
-    head(3) %>%
-    mutate(
-      start_ms = as_milliseconds(start),
-      end_ms = as_milliseconds(end)
-    )
-
+  srt <- read_srt("charlie_work.srt")
   csv <- read_csv("charlie_work.csv")
+
+  cols <- c("index", "start", "end", "text")
 
 })
 
 
 test_that("Read in data frame looks as expected", {
-
-  cols <- c("index", "start", "end", "text")
 
   expect_equal(srt[cols], csv[cols])
 
@@ -28,14 +21,14 @@ test_that("Read in data frame looks as expected", {
 
 test_that("Timestamps convert to milliseconds", {
 
-  expect_equal(srt$start_ms, csv$start_ms)
-  expect_equal(srt$end_ms, csv$end_ms)
+  expect_equal(as_milliseconds(srt$start), csv$start_ms)
+  expect_equal(as_milliseconds(srt$end), csv$end_ms)
 
 })
 
 test_that("Milliseconds convert to timestamps", {
 
-  expect_equal(as_timestamp(srt$start_ms), srt$start)
-  expect_equal(as_timestamp(srt$end_ms), srt$end)
+  expect_equal(as_timestamp(csv$start_ms), srt$start)
+  expect_equal(as_timestamp(csv$end_ms), srt$end)
 
 })
