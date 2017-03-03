@@ -32,3 +32,17 @@ test_that("Milliseconds convert to timestamps", {
   expect_equal(as_timestamp(csv$end_ms), srt$end)
 
 })
+
+test_that("Written out SRT looks exactly like the original", {
+
+  tmp <- tempfile()
+  on.exit(unlink(tmp))
+
+  write_srt(srt, tmp)
+
+  infile <- read_file("charlie_work.srt")
+  outfile <- read_file(tmp)
+
+  expect_equal(infile, outfile)
+
+})
