@@ -16,10 +16,10 @@ write_srt <- function(x, path, append = FALSE) {
     tibble::as_data_frame(x) %>%
     dplyr::mutate_(
       time = ~ paste(start, "-->", end),
-      sub = ~ paste(index, time, text, "\n", sep = "\n")
+      sub = ~ paste(index, time, text, "", sep = "\n")
     )
 
-  paste(y$sub, collapse = "") %>%
+  paste(y$sub, collapse = "\n") %>%
     readr::write_file(path, append)
 
   invisible(x)

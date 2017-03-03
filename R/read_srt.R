@@ -28,7 +28,8 @@ read_srt <- function(file) {
         stringr::str_extract("\\d+:\\d+:\\d+,\\d+$"),
       text  =
         sub[3:length(sub)] %>%
-        paste(collapse = "\n")
+        paste(collapse = "\n") %>%
+        stringr::str_replace("\n+$", "")
     )
 
   })
