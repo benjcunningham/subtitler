@@ -20,5 +20,6 @@ new file is created.}
 The input x, invisibly.
 }
 \description{
-Write a SubRip (SRT) File
+Takes a data frame of SubRip subtitle components and writes them to
+file to the specification of the format.
 }

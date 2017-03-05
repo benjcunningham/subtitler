@@ -7,12 +7,14 @@
 as_milliseconds(x)
 }
 \arguments{
-\item{x}{Character vector of timestamps in the form
-\code{HH:MM:SS,mmm}.}
+\item{x}{Character vector of SubRip timestamps.}
 }
 \value{
 A numeric vector corresponding to x.
 }
 \description{
-Convert a SubRip (SRT) Timestamp to Milliseconds
+Convert a vector of SubRip-style timestamps into milliseconds. Checks
+that each element is of the form hours:minutes:seconds,milliseconds
+where units are fixed as two zero-padded digits and the fractional
+component is fixed as three zero-padded digits (i.e., \code{00:00:00,000}).
 }

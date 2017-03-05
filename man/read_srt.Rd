@@ -13,5 +13,5 @@ read_srt(file)
 A data frame.
 }
 \description{
-Read a SubRip (SRT) File
+Read a SubRip format (filename extension \code{.srt}) text file.
 }

@@ -1,5 +1,7 @@
 #' Read a SubRip (SRT) File
 #'
+#' Read a SubRip format (filename extension \code{.srt}) text file.
+#'
 #' @param file Path to a file.
 #'
 #' @return A data frame.
@@ -26,7 +28,7 @@ read_srt <- function(file) {
       end =
         sub[2] %>%
         stringr::str_extract("\\d+:\\d+:\\d+,\\d+$"),
-      text  =
+      text =
         sub[3:length(sub)] %>%
         paste(collapse = "\n") %>%
         stringr::str_replace("\n+$", "")
