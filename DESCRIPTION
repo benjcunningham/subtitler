@@ -1,6 +1,6 @@
 Package: subtitler
 Title: Read Subtitle Files
-Version: 0.1.0
+Version: 0.1.1
 Description: Read and write video subtitle formats.
 Authors@R: c(
     person("Ben", "Cunningham", , "benjcunningham@gmail.com", role = c("aut", "cre"))
