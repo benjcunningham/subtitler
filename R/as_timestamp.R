@@ -7,20 +7,22 @@
 #' @export
 as_timestamp <- function(x) {
 
-  purrr::map_chr(x, function(y) {
+  y <-
+    tibble::data_frame_(list(
+      hh =
+        ~ (x %/% 3.6e6) %>%
+        stringr::str_pad(2, pad = "0"),
+      mm =
+        ~ (x %%  3.6e6 %/% 6e4) %>%
+        stringr::str_pad(2, pad = "0"),
+      ss =
+        ~ (x %%  3.6e6 %%  6e4 %/% 1e3) %>%
+        stringr::str_pad(2, pad = "0"),
+      ms =
+        ~ (x %%  1e3) %>%
+        stringr::str_pad(3, pad = "0")
+    ))
 
-    stamp <-
-      c(
-        y %/% 3.6e6,
-        y %%  3.6e6 %/% 6e4,
-        y %%  3.6e6 %%  6e4 %/% 1e3,
-        y %%  1e3
-      ) %>%
-      stringr::str_pad(2, pad = "0")
-
-    paste(stamp[1:3], collapse = ":") %>%
-      paste(stringr::str_pad(stamp[4], 3, pad = "0"), sep = ",")
-
-  })
+  sprintf("%s:%s:%s,%s", y$hh, y$mm, y$ss, y$ms)
 
 }
