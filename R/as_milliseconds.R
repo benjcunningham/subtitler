@@ -14,15 +14,8 @@ as_milliseconds <- function(x) {
 
   ms <- c(3.6e6, 6e4, 1e3, 1)
 
-  purrr::map_dbl(x, function(y) {
-
-    stamp <-
-      stringr::str_split(y, ":|,") %>%
-      unlist() %>%
-      as.numeric()
-
-    sum(stamp * ms)
-
-  })
+  stringr::str_split(x, ":|,") %>%
+    purrr::map(function(i) sum(as.numeric(i) * ms)) %>%
+    unlist()
 
 }
