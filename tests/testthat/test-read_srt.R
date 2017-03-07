@@ -33,6 +33,23 @@ test_that("Milliseconds convert to timestamps", {
 
 })
 
+test_that("Timestamps can be conveniently synchronized", {
+
+  expect_equal(
+    as_milliseconds(add_milliseconds(srt$start, 100)),
+    as_milliseconds(srt$start) + 100
+  )
+  expect_equal(
+    as_milliseconds(add_milliseconds(srt$start, -10)),
+    as_milliseconds(srt$start) - 10
+  )
+  expect_equal(
+    as_milliseconds(add_milliseconds(srt$start, 1:nrow(srt))),
+    as_milliseconds(srt$start) + 1:nrow(srt)
+  )
+
+})
+
 test_that("Written out SRT looks exactly like the original", {
 
   tmp <- tempfile()
