@@ -14,7 +14,8 @@ Imports:
     purrr,
     readr,
     stringr,
-    tibble
+    tibble,
+    tidyr
 Suggests:
     covr,
     testthat
