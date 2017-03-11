@@ -5,8 +5,8 @@ suppressMessages({
   library(dplyr)
   library(readr)
 
-  srt <- read_srt("charlie_work.srt")
-  csv <- read_csv("charlie_work.csv")
+  srt <- read_srt("Always_Sunny_S10E04.srt")
+  csv <- read_csv("Always_Sunny_S10E04.csv")
 
   cols <- c("index", "start", "end", "text")
 
@@ -57,7 +57,7 @@ test_that("Written out SRT looks exactly like the original", {
 
   write_srt(srt, tmp)
 
-  infile <- read_file("charlie_work.srt")
+  infile <- read_file("Always_Sunny_S10E04.srt")
   outfile <- read_file(tmp)
 
   expect_equal(infile, outfile)
