@@ -8,6 +8,14 @@ output: github_document
 knitr::opts_knit$set(root.dir = 'tests/testthat/')
 ```
 
+```{r, echo = FALSE}
+knitr::opts_chunk$set(fig.path = "README-")
+```
+
+```{r echo=FALSE, message=FALSE}
+install.packages("../..", repos = NULL, type = "source")
+```
+
 # subtitler
 
 [![Build Status](https://travis-ci.org/benjcunningham/subtitler.svg?branch=master)](https://travis-ci.org/benjcunningham/subtitler)
@@ -40,7 +48,7 @@ read_file("Always_Sunny_S10E04.srt") %>%
 
 Consider the above SubRip file and suppose we have observed that every subtitle lags by half a second. Using the `add_milliseconds()` function, we can easily adjust the timestamp of every block accordingly. We can even write back to file in the original format using `write_srt()`.
 
-```{r}
+```{r sunny-demo}
 f <- tempfile()
 
 read_srt("Always_Sunny_S10E04.srt") %>%
@@ -53,9 +61,9 @@ read_srt("Always_Sunny_S10E04.srt") %>%
 
 ### Text Mining
 
-The package may also be useful for getting subtitles into a tidytext workflow. For example, [I previously reproduced](http://benjcunningham.org/2017/03/05/introducing-subtitler-0-1-0.html) part of [this article by Oliver Roeder of FiveThirtyEight](https://fivethirtyeight.com/features/complete-catalog-curses-deaths-quentin-tarantino-films/), cataloging all of the times someone swore in one of Quentin Tarantino's movies. The script below mirrors the analysis on the script of _The Wolf of Wall Street_.
+The package may also be useful for getting subtitles into a tidytext workflow. For example, [I previously reproduced](http://benjcunningham.org/2017/03/05/introducing-subtitler-0-1-0.html) part of [this article by Oliver Roeder of FiveThirtyEight](https://fivethirtyeight.com/features/complete-catalog-curses-deaths-quentin-tarantino-films/), cataloging all of the times someone swore in one of Quentin Tarantino's movies. The script below mirrors the analysis on subtitles from _The Wolf of Wall Street_.
 
-```{r cache=TRUE, fig.width=10, fig.height=2}
+```{r wolf-demo, fig.width=10, fig.height=2}
 df <- read_srt("The_Wolf_of_Wall_Street.srt")
 
 df %>%
