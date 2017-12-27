@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_srt.R
 \name{read_srt}
 \alias{read_srt}
-\title{Read a SubRip (SRT) File}
+\title{Read a SubRip (SRT) file into a tibble}
 \usage{
 read_srt(file)
 }
@@ -13,5 +13,7 @@ read_srt(file)
 A data frame.
 }
 \description{
-Read a SubRip format (filename extension \code{.srt}) text file.
+Reads a SubRip format file (extension \code{.srt}) and creates a
+tibble from it, with rows corresponding to subtitle records in the
+file.
 }
