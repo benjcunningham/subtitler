@@ -17,14 +17,8 @@ write_srt <- function(x, path, append = FALSE) {
 
   stopifnot(tibble::is_tibble(x))
 
-  y <-
-    tibble::as_data_frame(x) %>%
-    dplyr::mutate_(
-      time = ~ paste(start, "-->", end),
-      sub = ~ paste(index, time, text, "", sep = "\n")
-    )
-
-  paste(y$sub, collapse = "\n") %>%
+  glue::glue_data(x, "{index}\n{start} --> {end}\n{text}\n\n") %>%
+    glue::collapse(sep = "\n") %>%
     readr::write_file(path, append)
 
   invisible(x)

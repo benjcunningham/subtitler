@@ -11,6 +11,7 @@ License: MIT + file LICENSE
 LazyData: true
 Imports:
     dplyr,
+    glue,
     purrr,
     readr,
     rlang,
