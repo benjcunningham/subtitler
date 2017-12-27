@@ -3,7 +3,7 @@ Title: Read Subtitle Files
 Version: 0.3.0
 Description: Read and write video subtitle formats.
 Authors@R: c(
-    person("Ben", "Cunningham", , "benjcunningham@gmail.com", role = c("aut", "cre"))
+    person("Ben", "Cunningham", , "benjamescunningham@gmail.com", role = c("aut", "cre"))
     )
 URL: https://github.com/benjcunningham/subtitler
 BugReports: https://github.com/benjcunningham/subtitler/issues
