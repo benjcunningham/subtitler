@@ -1,6 +1,8 @@
-#' Read a SubRip (SRT) File
+#' Read a SubRip (SRT) file into a tibble
 #'
-#' Read a SubRip format (filename extension \code{.srt}) text file.
+#' Reads a SubRip format file (extension \code{.srt}) and creates a
+#' tibble from it, with rows corresponding to subtitle records in the
+#' file.
 #'
 #' @param file Path to a file.
 #'
