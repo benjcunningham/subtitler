@@ -7,6 +7,7 @@
 #' @docType package
 #' @name subtitler
 #' @importFrom dplyr %>%
+#' @importFrom rlang .data
 NULL
 
 # Quiets R CMD check NOTEs for `.` in pipelines
