@@ -11,17 +11,21 @@
 #' @export
 read_srt <- function(file) {
 
-  tibble::data_frame(
-    raw =
-      readr::read_file(file) %>%
-      stringr::str_split("(\r\n){2,}|\n{2,}") %>%
-      unlist()
-  ) %>%
-    tidyr::separate_("raw", c("index", "time", "text"), sep = "(\r\n)|\n", extra = "merge") %>%
-    tidyr::separate_("time", c("start", "end"), sep = " --> ") %>%
-    dplyr::mutate_(
-      index = ~ as.integer(index),
-      text  = ~ stringr::str_replace(text, "((\r\n)|\n)$", "")
+  parts <- c("index", "time", "text")
+  sep <- "(\r\n)|\n"
+
+  tibble::tibble(raw = read_srt_lines(file)) %>%
+    tidyr::separate("raw", parts, sep = sep, extra = "merge") %>%
+    tidyr::separate("time", c("start", "end"), sep = " --> ") %>%
+    dplyr::mutate(
+      index = as.integer(.data$index),
+      text = stringr::str_replace(.data$text, "((\r\n)|\n)$", "")
     )
 
+}
+
+#' @keywords internal
+read_srt_lines <- function(file) {
+  f <- readr::read_file(file)
+  unlist(stringr::str_split(f, "(\r\n){2,}|\n{2,}"))
 }
