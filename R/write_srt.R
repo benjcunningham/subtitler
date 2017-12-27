@@ -15,6 +15,8 @@
 #' @export
 write_srt <- function(x, path, append = FALSE) {
 
+  stopifnot(tibble::is_tibble(x))
+
   y <-
     tibble::as_data_frame(x) %>%
     dplyr::mutate_(
