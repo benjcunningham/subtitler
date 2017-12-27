@@ -7,22 +7,18 @@
 #' @export
 as_timestamp <- function(x) {
 
-  y <-
-    tibble::data_frame_(list(
-      hh =
-        ~ (x %/% 3.6e6) %>%
-        stringr::str_pad(2, pad = "0"),
-      mm =
-        ~ (x %%  3.6e6 %/% 6e4) %>%
-        stringr::str_pad(2, pad = "0"),
-      ss =
-        ~ (x %%  3.6e6 %%  6e4 %/% 1e3) %>%
-        stringr::str_pad(2, pad = "0"),
-      ms =
-        ~ (x %%  1e3) %>%
-        stringr::str_pad(3, pad = "0")
-    ))
+  df <- tibble::tibble(
+    H = pad_time(x %/% 3.6e6, 2),
+    M = pad_time(x %%  3.6e6 %/% 6e4, 2),
+    S = pad_time(x %%  3.6e6 %%  6e4 %/% 1e3, 2),
+    f = pad_time(x %%  1e3, 3)
+  )
 
-  sprintf("%s:%s:%s,%s", y$hh, y$mm, y$ss, y$ms)
+  as.character(glue::glue_data(df, "{H}:{M}:{S},{f}"))
 
+}
+
+#' @keywords internal
+pad_time <- function(x, width) {
+  stringr::str_pad(x, width, pad = "0")
 }
