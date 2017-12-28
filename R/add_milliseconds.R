@@ -11,8 +11,6 @@
 #' @export
 add_milliseconds <- function(x, ms) {
 
-  as_milliseconds(x) %>%
-    `+`(ms) %>%
-    as_timestamp()
+  as_timestamp(as_milliseconds(x) + ms)
 
 }
