@@ -12,10 +12,9 @@
 #' @export
 as_milliseconds <- function(x) {
 
-  ms <- c(3.6e6, 6e4, 1e3, 1)
+  f <- c(3.6e6, 6e4, 1e3, 1)
+  x <- stringr::str_split(x, "[:,]")
 
-  stringr::str_split(x, ":|,") %>%
-    purrr::map(function(i) sum(as.numeric(i) * ms)) %>%
-    unlist()
+  purrr::map_dbl(x, ~ sum(as.numeric(.x) * f))
 
 }
