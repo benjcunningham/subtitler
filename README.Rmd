@@ -9,7 +9,7 @@ knitr::opts_knit$set(root.dir = 'tests/testthat/')
 ```
 
 ```{r, echo = FALSE}
-knitr::opts_chunk$set(fig.path = "README-")
+knitr::opts_chunk$set(fig.path = "man/figures/README-")
 ```
 
 ```{r echo=FALSE, message=FALSE}
@@ -23,7 +23,6 @@ install.packages("../..", repos = NULL, type = "source")
 
 Read and write video subtitle formats.
 
-
 ## Install
 
 ```{r eval=FALSE}
@@ -33,10 +32,9 @@ devtools::install_github("benjcunningham/subtitler")
 ## Quick Demos
 
 ```{r message=FALSE}
-library(subtitler)
 library(tidyverse)
 library(tidytext)
-library(stringr)
+library(subtitler)
 ```
 
 ### Adjusting Timestamps
@@ -61,7 +59,7 @@ read_srt("Always_Sunny_S10E04.srt") %>%
 
 ### Text Mining
 
-The package may also be useful for getting subtitles into a tidytext workflow. For example, [I previously reproduced](http://benjcunningham.org/2017/03/05/introducing-subtitler-0-1-0.html) part of [this article by Oliver Roeder of FiveThirtyEight](https://fivethirtyeight.com/features/complete-catalog-curses-deaths-quentin-tarantino-films/), cataloging all of the times someone swore in one of Quentin Tarantino's movies. The script below mirrors the analysis on subtitles from _The Wolf of Wall Street_.
+The package may also be useful for getting subtitles into a tidytext workflow. For example, [I previously reproduced](https://benjcunningham.org/blog/introducing-subtitler-0-1-0.html) part of [this article by Oliver Roeder of FiveThirtyEight](https://fivethirtyeight.com/features/complete-catalog-curses-deaths-quentin-tarantino-films/), cataloging all of the times someone swore in one of Quentin Tarantino's movies. The script below mirrors the analysis on subtitles from _The Wolf of Wall Street_.
 
 ```{r wolf-demo, fig.width=10, fig.height=2}
 df <- read_srt("The_Wolf_of_Wall_Street.srt")

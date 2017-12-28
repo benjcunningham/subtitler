@@ -18,10 +18,9 @@ Quick Demos
 -----------
 
 ``` r
-library(subtitler)
 library(tidyverse)
 library(tidytext)
-library(stringr)
+library(subtitler)
 ```
 
 ### Adjusting Timestamps
@@ -55,7 +54,7 @@ read_srt("Always_Sunny_S10E04.srt") %>%
 
 ### Text Mining
 
-The package may also be useful for getting subtitles into a tidytext workflow. For example, [I previously reproduced](http://benjcunningham.org/2017/03/05/introducing-subtitler-0-1-0.html) part of [this article by Oliver Roeder of FiveThirtyEight](https://fivethirtyeight.com/features/complete-catalog-curses-deaths-quentin-tarantino-films/), cataloging all of the times someone swore in one of Quentin Tarantino's movies. The script below mirrors the analysis on subtitles from *The Wolf of Wall Street*.
+The package may also be useful for getting subtitles into a tidytext workflow. For example, [I previously reproduced](https://benjcunningham.org/blog/introducing-subtitler-0-1-0.html) part of [this article by Oliver Roeder of FiveThirtyEight](https://fivethirtyeight.com/features/complete-catalog-curses-deaths-quentin-tarantino-films/), cataloging all of the times someone swore in one of Quentin Tarantino's movies. The script below mirrors the analysis on subtitles from *The Wolf of Wall Street*.
 
 ``` r
 df <- read_srt("The_Wolf_of_Wall_Street.srt")
@@ -70,7 +69,7 @@ df %>%
     scale_x_continuous(breaks = seq(0, 180, 60), limits = c(0, 180))
 ```
 
-![](README-wolf-demo-1.png)
+![](man/figures/README-wolf-demo-1.png)
 
 License
 -------
