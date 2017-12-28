@@ -1,9 +1,9 @@
-#' Write a SubRip (SRT) File
+#' Write a data frame of SubRip (SRT) parts to file
 #'
 #' Takes a data frame of SubRip subtitle components and writes them to
 #' file to the specification of the format.
 #'
-#' @param x A data frame to write to disk. Must contain the columns
+#' @param x Data frame to write to disk. Must contain the columns
 #'   \code{index}, \code{start}, \code{end}, and \code{text}.
 #' @param path Path to write to.
 #' @param append If FALSE, will overwrite existing file. If TRUE, will

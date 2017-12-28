@@ -2,12 +2,12 @@
 % Please edit documentation in R/write_srt.R
 \name{write_srt}
 \alias{write_srt}
-\title{Write a SubRip (SRT) File}
+\title{Write a data frame of SubRip (SRT) parts to file}
 \usage{
 write_srt(x, path, append = FALSE)
 }
 \arguments{
-\item{x}{A data frame to write to disk. Must contain the columns
+\item{x}{Data frame to write to disk. Must contain the columns
 \code{index}, \code{start}, \code{end}, and \code{text}.}
 
 \item{path}{Path to write to.}
