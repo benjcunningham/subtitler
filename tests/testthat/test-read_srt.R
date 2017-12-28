@@ -2,7 +2,6 @@ context("Work with SubRip Files")
 
 suppressMessages({
 
-  library(dplyr)
   library(readr)
 
   srt <- read_srt("Always_Sunny_S10E04.srt")
